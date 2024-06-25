@@ -84,7 +84,7 @@ class ClockPainter extends CustomPainter {
 
     final secondAngle = dateTime.second * 2 * pi / 60;
     final minuteAngle = (dateTime.minute + dateTime.second / 60) * 2 * pi / 60;
-    final hourAngle = (dateTime.hour + dateTime.minute / 60) * 2 * pi / 12;
+    final hourAngle = (dateTime.hour % 12 + dateTime.minute / 60) * 2 * pi / 12;
 
     final hourX = center.dx + hourLine * cos(hourAngle - pi / 2);
     final hourY = center.dy + hourLine * sin(hourAngle - pi / 2);
@@ -109,3 +109,5 @@ class ClockPainter extends CustomPainter {
     return true;
   }
 }
+
+
